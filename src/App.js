@@ -3,7 +3,7 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
-  let [글제목, 글제목변경] = useState(['BBBBBB', 'AAAAA', 'CCCC']);
+  let [글제목, 글제목변경] = useState(['ㅇㅇㅇ', 'BBBBBB', 'AAAAA', 'CCCC']);
   let [like, likeAdd] = useState([0, 0, 0]);
   let [modal, setModal] = useState(false);
   let [title, setTitle] = useState(0);
@@ -63,6 +63,13 @@ function App() {
           console.log(입력값);
         }}
       />
+      <button
+        onClick={() => {
+          let copy = [...글제목];
+        }}
+      >
+        글발행
+      </button>
       {modal == true ? (
         <Modal
           title={title}
