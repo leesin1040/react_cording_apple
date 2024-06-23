@@ -96,9 +96,7 @@ function Modal(props) {
       <h4>{props.글제목[props.title]}</h4>
       <p>날짜</p>
       <p>{props.titleProps}</p>
-      <button
-        onClick={() => props.글제목변경(['변경된 제목', 'AAAAA', 'CCCC'])}
-      >
+      <button onClick={() => props.글제목변경(['변경된', 'AAAAA', 'CCCC'])}>
         글 수정
       </button>
     </div>
