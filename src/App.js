@@ -3,7 +3,7 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
-  let [글제목, 글제목변경] = useState(['ㅇㅇㅇ', 'BBBBBB', 'AAAAA', 'CCCC']);
+  let [글제목, 글제목변경] = useState(['BBBBBB', 'AAAAA', 'CCCC']);
   let [like, likeAdd] = useState([0, 0, 0]);
   let [modal, setModal] = useState(false);
   let [title, setTitle] = useState(0);
@@ -45,10 +45,19 @@ function App() {
                     likeAdd(copyLike);
                   }}
                 >
-                  따봉{like[i]}
+                  👍{like[i]}
                 </span>
               </h4>
               <p>2월 17일 발행</p>
+              <button
+                onClick={() => {
+                  let copy = [...글제목];
+                  copy.splice(i, 1);
+                  글제목변경(copy);
+                }}
+              >
+                삭제
+              </button>
             </div>
           </div>
         );
@@ -66,6 +75,11 @@ function App() {
       <button
         onClick={() => {
           let copy = [...글제목];
+          copy.unshift(입력값);
+          글제목변경(copy);
+          let copyLike = [...like];
+          copyLike.unshift(0);
+          likeAdd(copyLike);
         }}
       >
         글발행
